@@ -83,6 +83,13 @@ func (e *EventDispatcher) HasHandler(eventName string, handler EventHandlerInter
 	return false
 }
 
+func (e *EventDispatcher) HasAnyHandler(eventName string) bool {
+	if handlers, ok := e.handlers[eventName]; ok {
+		return len(handlers) > 0
+	}
+	return false
+}
+
 func (e *EventDispatcher) ClearHandlers() error {
 	e.handlers = make(map[string][]EventHandlerInterface)
 	return nil

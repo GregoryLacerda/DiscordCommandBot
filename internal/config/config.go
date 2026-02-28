@@ -8,9 +8,17 @@ import (
 )
 
 type Config struct {
-	RabbitMQURL   string
-	QueueName     string
-	ExchangeName  string
+	// Discord
+	DiscordToken         string
+	DiscordCommandPrefix string
+
+	// RabbitMQ
+	RabbitMQURL  string
+	QueueName    string
+	ExchangeName string
+	RoutingKey   string
+
+	// Server
 	WebServerPort string
 }
 
@@ -22,9 +30,12 @@ func LoadConfig() *Config {
 	}
 
 	return &Config{
-		RabbitMQURL:   os.Getenv("RABBITMQ_URL"),
-		QueueName:     os.Getenv("QUEUE_NAME"),
-		ExchangeName:  os.Getenv("EXCHANGE_NAME"),
-		WebServerPort: os.Getenv("WEB_SERVER_PORT"),
+		DiscordToken:         os.Getenv("DISCORD_TOKEN"),
+		DiscordCommandPrefix: os.Getenv("DISCORD_COMMAND_PREFIX"),
+		RabbitMQURL:          os.Getenv("RABBITMQ_URL"),
+		QueueName:            os.Getenv("QUEUE_NAME"),
+		ExchangeName:         os.Getenv("EXCHANGE_NAME"),
+		RoutingKey:           os.Getenv("ROUTING_KEY"),
+		WebServerPort:        os.Getenv("WEB_SERVER_PORT"),
 	}
 }

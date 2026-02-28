@@ -1,11 +1,18 @@
 package service
 
+import (
+	"enque-learning/integration"
+	"enque-learning/internal/config"
+)
+
 type Service struct {
-	// Add your service fields here
+	config       *config.Config
+	integrations *integration.Integrations
 }
 
-func NewService() *Service {
+func NewService(cfg *config.Config, integrations *integration.Integrations) *Service {
 	return &Service{
-		// Initialize your service fields here
+		config:       cfg,
+		integrations: integrations,
 	}
 }
