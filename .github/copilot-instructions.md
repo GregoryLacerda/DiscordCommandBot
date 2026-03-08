@@ -3,7 +3,7 @@
 ## Project Overview
 Event-driven Discord bot in Go using RabbitMQ for async command processing. Commands flow through EventDispatcher → Handlers → Services → Discord responses.
 
-**Full architecture**: See [AGENTS.md](../AGENTS.md) for complete system documentation.
+**Full architecture**: See AGENTS.md for complete system documentation.
 
 ## Critical Patterns
 
